@@ -11,7 +11,7 @@
 					position:absolute;
 					color:white;
 					font-size: 60px;
-					right:30%;
+					right:218px;
 					-webkit-animation-name: slidein; /* old Safari */
 					-webkit-animation-duration: 6s; /* old Safari */
 					animation-name: slidein;
@@ -24,7 +24,7 @@
 						top:3%;
 						right:3%;
 						font-size: 60px;
-						right:2%;
+						right:50px;
 						-webkit-animation-name: slidein; /* old Safari */
 						-webkit-animation-duration: 8s; /* old Safari */
 						animation-name: slidein;
@@ -34,8 +34,8 @@
 				#iacet{
 					position:absolute;
 					font-size: 20px;
-					background-color: #111;
-					color: white;
+					background-color: #333;
+					color: #111;
 					padding: 10px 15px;
 					border: none;
 
@@ -113,13 +113,13 @@
 }
 
 
-      </style>
+    </style>
   </head>
   <body>
 
 		<div id="epik" class="sidebar">
   		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  		<a href="#demo.html">Wireframe Demo</a>
+  		<a href="/demo.html">Wireframe Model</a>
   		<a href="#">Page 2</a>
   		<a href="#">Page 3</a>
   		<a href="#">Page 4</a>
@@ -141,48 +141,47 @@
     <script>
 
 			//pre stuff
-			var scene = new THREE.Scene();
-			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-			var loader = new THREE.ImageLoader();
-			camera.position.z = 5;
+	var scene = new THREE.Scene();
+	var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+	var loader = new THREE.ImageLoader();
+	camera.position.z = 5;
 
-			const canvas = document.querySelector('#c');
-			var renderer = new THREE.WebGLRenderer({canvas});
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			document.body.appendChild( renderer.domElement );
+	const canvas = document.querySelector('#c');
+	var renderer = new THREE.WebGLRenderer({canvas});
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	document.body.appendChild( renderer.domElement );
 
-			var ambient = new THREE.AmbientLight( 0xF6FBFF );
-			scene.add( ambient );
+	var ambient = new THREE.AmbientLight( 0xF6FBFF );
+	scene.add( ambient );
 
-			// main code
+// main code
 
       var texture = new THREE.ImageUtils.loadTexture('Earth.jpg');
-			var geometry = new THREE.SphereGeometry(2,144,144);
-			var material = new THREE.MeshPhongMaterial({map: texture});
-			var sphere = new THREE.Mesh( geometry, material );
-			sphere.rotateX( .5 );
-			scene.add( sphere );
+	var geometry = new THREE.SphereGeometry(2,144,144);
+	var material = new THREE.MeshPhongMaterial({map: texture});
+	var sphere = new THREE.Mesh( geometry, material );
+	sphere.rotateX( .5 );
+	scene.add( sphere );
 
 
       var texture2 = new THREE.ImageUtils.loadTexture('FinalStarMap.png');
       var geometry2 = new THREE.SphereGeometry(20,256,256);
-			var material2 = new THREE.MeshBasicMaterial({map:texture2});
-        material2.side  = THREE.BackSide
-			var StarMap = new THREE.Mesh( geometry2, material2 );
-			scene.add( StarMap );
+      var material2 = new THREE.MeshBasicMaterial({map:texture2});
+      	material2.side  = THREE.BackSide
+      var StarMap = new THREE.Mesh( geometry2, material2 );
+	scene.add( StarMap );
 
-			//animations
-
-			var animate = function () {
-				requestAnimationFrame( animate );
-
-				sphere.rotation.y -= 0.0005;
-
-				renderer.render( scene, camera );
-			};
+//animations
 
 
-			animate();
+
+      var animate = function () {
+	requestAnimationFrame( animate );
+	sphere.rotation.y -= 0.0005;
+	renderer.render( scene, camera );
+	      
+	};
+      animate();
 
 </script>
 <script>
